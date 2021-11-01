@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Answer Question!{% endblock %}</h2>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="body">Please type your response below:</label>
+    <textarea class="form-control" name="body" id="body" required></textarea>
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

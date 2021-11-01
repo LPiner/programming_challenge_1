@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Questions By Answers{% endblock %}</h2>
+{% endblock %}
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" class="col-sm">Answer Count</th>
+      <th scope="col" class="col-sm">Title</th>
+      <th scope="col" class="col-sm">Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for q in questions %}
+      <tr>
+        <td>{{ counts[q.id]}}</td>
+      <td><a href="{{ url_for('question',id=q.id)}}">{{ q.title}}</a></td>
+      <td>{{ q.body}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+  <ul>
+
+  </ul>
+{% endblock %}

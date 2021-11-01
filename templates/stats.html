@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Top Askers</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" class="col-sm">Username</th>
+      <th scope="col" class="col-sm">Question Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for x in question_counts_by_user %}
+      <tr>
+        <td>{{ users[x[0]].username}}</td>
+      <td>{{ x[1] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<h2>Top Responders</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" class="col-sm">Username</th>
+      <th scope="col" class="col-sm">Answer Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for x in answer_counts_by_user %}
+      <tr>
+        <td>{{ users[x[0]].username}}</td>
+      <td>{{ x[1] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{question.title}}{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+
+<body>{{question.body}}</body>
+<br>
+
+<a href="{{ url_for('submit_answer',id=question.id)}}">Answer This Question!</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Answer</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for a in answers %}
+      <tr>
+      <td>{{ users[a.owner_id].username}}</td>
+      <td>{{ a.body}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
