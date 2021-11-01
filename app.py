@@ -86,13 +86,7 @@ def submit_answer(id: int):
         if error is None:
             # The line below starts a transaction with the DB that ends when the block ends.
             with db_session.begin() as db:
-                answer = create_question_answer(db,
-                                                CreateQuestionAnswer(
-                                                    owner_id=session["current_user"]["id"],
-                                                    question_id=question.id,
-                                                    body=request.form["body"],
-                                                )
-                                                )
+                create_question_answer(db, create)
             flash("Answer Submitted!")
             return redirect(url_for("question", id=question.id))
 
@@ -118,7 +112,7 @@ def question(id: int):
 
 @app.route("/create_user", methods=('GET', 'POST'))
 def user():
-    if not session.get("current_user"):
+    if session.get("current_user"):
         flash(f"You are already signed in.", "info")
         return redirect(url_for("index"))
     if request.method == 'POST':

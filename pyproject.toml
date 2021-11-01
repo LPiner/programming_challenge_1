@@ -12,6 +12,7 @@ SQLAlchemy = "^1.4.26"
 toml = "^0.10.2"
 alembic = "^1.7.4"
 psycopg2 = "^2.9.1"
+bs4 = "^0.0.1"
 
 [tool.poetry.dev-dependencies]
 
