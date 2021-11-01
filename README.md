@@ -1,11 +1,7 @@
-# DEV Steps
+# Dev Steps
 
-- docker-compose up db
 - poetry install
+- docker-compose up db
 - Migrate DB to the latest `alembic upgrade head`
+- Run flask
 
-### To Create A New Migration
-- ``alembic revision -m "create account table"`` 
-
-## Trouble Shooting
-- Delete the db `docker-compose rm`
